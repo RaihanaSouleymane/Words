@@ -1,14 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="eqf-L0-8Cf">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +21,106 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8gB-CJ-04j">
+                                <rect key="frame" x="19" y="200" width="337.5" height="457"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZDU-pc-uYf">
+                                        <rect key="frame" x="-0.5" y="0.0" width="337.5" height="457"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="g7n-rM-FRc"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="s7t-bq-S7k"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="ZDU-pc-uYf" firstAttribute="height" secondItem="8gB-CJ-04j" secondAttribute="height" id="IDw-Z0-BFw"/>
+                                    <constraint firstItem="ZDU-pc-uYf" firstAttribute="centerX" secondItem="8gB-CJ-04j" secondAttribute="centerX" id="ZkF-w3-GdK"/>
+                                    <constraint firstItem="ZDU-pc-uYf" firstAttribute="centerY" secondItem="8gB-CJ-04j" secondAttribute="centerY" id="a0b-iv-ZVt"/>
+                                    <constraint firstItem="ZDU-pc-uYf" firstAttribute="width" secondItem="8gB-CJ-04j" secondAttribute="width" id="et5-r9-lLO"/>
+                                </constraints>
+                            </view>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please enter an acronym or initialism." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HMG-qQ-WPF">
+                                <rect key="frame" x="0.0" y="79" width="375" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="T4C-5V-DXc"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xgQ-4h-KPw" customClass="RoundedRectButton">
+                                <rect key="frame" x="93.5" y="129" width="187.5" height="40"/>
+                                <color key="backgroundColor" red="0.0078431372550000003" green="0.41960784309999999" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="NER-F1-YlE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <state key="normal" title="Search">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="SearchCliked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XAp-AZ-xaF"/>
+                                </connections>
+                            </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="List of corresponding meaning" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yEk-ZT-2sC">
+                                <rect key="frame" x="0.0" y="179" width="375" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="rYl-qb-MFR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="HMG-qQ-WPF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0vu-D3-6Wi"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="8gB-CJ-04j" secondAttribute="bottom" constant="10" id="2Ra-cX-6PJ"/>
+                            <constraint firstItem="xgQ-4h-KPw" firstAttribute="width" secondItem="HMG-qQ-WPF" secondAttribute="width" multiplier="0.5" id="8FN-7A-Sky"/>
+                            <constraint firstItem="xgQ-4h-KPw" firstAttribute="top" secondItem="HMG-qQ-WPF" secondAttribute="bottom" constant="15" id="B6M-Hf-ad1"/>
+                            <constraint firstItem="8gB-CJ-04j" firstAttribute="top" secondItem="yEk-ZT-2sC" secondAttribute="bottom" id="G7Q-XP-LGh"/>
+                            <constraint firstItem="8gB-CJ-04j" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="U7a-tp-ty6"/>
+                            <constraint firstItem="yEk-ZT-2sC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UuK-KS-wRi"/>
+                            <constraint firstItem="HMG-qQ-WPF" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="15" id="UxU-C5-MJR"/>
+                            <constraint firstItem="HMG-qQ-WPF" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="cWg-GX-xr7"/>
+                            <constraint firstItem="yEk-ZT-2sC" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="de1-mN-qGE"/>
+                            <constraint firstItem="xgQ-4h-KPw" firstAttribute="centerX" secondItem="HMG-qQ-WPF" secondAttribute="centerX" id="eEd-rt-2xs"/>
+                            <constraint firstItem="yEk-ZT-2sC" firstAttribute="top" secondItem="xgQ-4h-KPw" secondAttribute="bottom" constant="10" id="glj-7m-yEG"/>
+                            <constraint firstItem="8gB-CJ-04j" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="qMy-Fu-Lzg"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="5Ll-iM-VY7"/>
+                    <connections>
+                        <outlet property="listTableView" destination="ZDU-pc-uYf" id="0mj-7q-nI4"/>
+                        <outlet property="listTitleLbl" destination="yEk-ZT-2sC" id="RKS-i0-oeC"/>
+                        <outlet property="listView" destination="8gB-CJ-04j" id="Fin-WN-7hL"/>
+                        <outlet property="searchTextField" destination="HMG-qQ-WPF" id="Srj-m5-rpP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="461.60000000000002" y="-680.5097451274363"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="y6A-fT-WY5">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eqf-L0-8Cf" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4qt-Cx-D9I">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="7Cf-YB-9TN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="brc-D4-Abp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-223" y="-679"/>
         </scene>
     </scenes>
 </document>
